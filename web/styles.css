@@ -1,0 +1,40 @@
+body{
+    font-family: Arial;
+    background-color: #0B004D;
+    /* Sometimes touch events to draw on iphones doesn't work. To
+    fix this, add below line */
+    overscroll-behavior: none;
+    color: #00ead6;
+}
+
+#title{
+color: #DDFFFC;
+}
+
+#content{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    text-align: center;
+}
+
+button{
+    cursor:pointer;
+    border: none;
+    padding: 2px 10px 2px 10px;
+    height: 22px;
+    border-radius: 5px;
+    background-color:rgb(146, 0, 244);
+    color:white;
+}
+
+button:hover{
+    background-color: rgb(75, 0, 125);
+}
+
+button:disabled,
+button:disabled:hover{
+    background-color: rgb(233, 200, 255);
+    cursor:default;
+}
