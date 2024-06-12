@@ -8,6 +8,10 @@ constants.JSON_DIR = constants.DATASET_DIR + '/json';
 constants.IMG_DIR = constants.DATASET_DIR + '/img';
 constants.SAMPLES = constants.DATASET_DIR + '/samples.json';
 
+// To understand data by browser
+constants.JS_OBJECTS = '../common/js_objects';
+constants.SAMPLES_JS = constants.JS_OBJECTS+"/samples.js"
+
 if(typeof module !== undefined){
 module.exports = constants
 }

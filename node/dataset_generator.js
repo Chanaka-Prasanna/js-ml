@@ -7,14 +7,19 @@ const {createCanvas} = require('canvas');
 const canvas  = createCanvas(400,400);
 const ctx = canvas.getContext('2d');
 
+/*
+*Read the contents of the directory synchronously and store the file names in the array 'fileNames'
+*/
 const fileNames =  fs.readdirSync(constants.RAW_DIR);
 const samples  = [];
 let id = 1;
+
 fileNames.forEach(fn =>{
     const content  = fs.readFileSync(
         constants.RAW_DIR+'/'+fn
     );
     const {session,student, drawings} =  JSON.parse(content);
+    // label = car,fish, house, ...
     for (let label in drawings) {
         samples.push({
             id,
@@ -34,8 +39,8 @@ fileNames.forEach(fn =>{
             constants.IMG_DIR+'/'+id+'.png',
             paths
         );
-// multipy by 8 since each file has 8 samples
-        utils.printProgress(id,fileNames.length*8)
+        // multipy by 8 since each file has 8 samples
+        utils.printProgress(id,fileNames.length*8);
 
         id++;
 
@@ -46,6 +51,10 @@ fileNames.forEach(fn =>{
 
 fs.writeFileSync(constants.SAMPLES,
     JSON.stringify(samples)
+);
+
+fs.writeFileSync(constants.SAMPLES_JS,
+   "const samples="+ JSON.stringify(samples)+";"
 );
 
 
